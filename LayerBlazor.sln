@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerBlazor", "LayerBlazor\LayerBlazor.csproj", "{2525771E-2CCF-4A0D-8BBB-244E86772AC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWeb", "SampleWeb\SampleWeb.csproj", "{38AD5ED9-6365-4822-AE45-5EA3D6D465AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2525771E-2CCF-4A0D-8BBB-244E86772AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2525771E-2CCF-4A0D-8BBB-244E86772AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2525771E-2CCF-4A0D-8BBB-244E86772AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2525771E-2CCF-4A0D-8BBB-244E86772AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38AD5ED9-6365-4822-AE45-5EA3D6D465AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AD5ED9-6365-4822-AE45-5EA3D6D465AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AD5ED9-6365-4822-AE45-5EA3D6D465AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AD5ED9-6365-4822-AE45-5EA3D6D465AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43FA5771-3DB2-4FB5-9087-712514ED18F8}
+	EndGlobalSection
+EndGlobal

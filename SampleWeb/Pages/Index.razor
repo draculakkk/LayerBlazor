@@ -1,0 +1,126 @@
+﻿@page "/"
+@inject IJSRuntime jsRuntime
+@inject LayerHelper layerHelper
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<button @onclick="TestOpen">测试弹窗</button>
+<button @onclick="TestOpen2">测试吸附</button>
+
+<div id="tip">我的弹窗提示</div>
+
+
+
+<Layer @ref="dlgtplt" title="['文本', 'font-size:18px;']" debugMode="true" skin="layui-layer-rim" shadeClose="true" shade="0.6"
+       area="['750px', '50%']" btn="['确定', '取消']"
+       OnYes="@(async (index)=>
+                {
+                    System.Console.WriteLine($"onyes:{index}");
+                    await dlgtplt.CloseAsync();
+                })"
+       OnCancel="@(async (index)=>
+                {
+                    System.Console.WriteLine($"oncancel:{index}");
+                    await dlgtplt.CloseAsync();
+                })"
+       OnMoveEnd="@(()=>
+                     {
+                         System.Console.WriteLine($"moveEnd");
+                     })">
+    <div style="background-color: red;">
+        <h1>数字1+数字2结果：@result</h1>
+        数字1:<input @bind="num1" />
+        数字1:<input @bind="num2" />
+        <Button @onclick="@(e => { result = $"{int.Parse(num1) + int.Parse(num2)}"; })">计算</Button>
+    </div>
+</Layer>
+
+<Layer @ref="tiptplt" type="4" content="@("#tip")">
+    我的吸附提示
+</Layer>
+
+<button @onclick="@(async ()=>
+                    {
+                        int i = await layerHelper.Alert("我是弹窗", new LayerOptions() { icon = 1 });
+                    })">
+    测试Alter
+</button>
+
+<button @onclick="@(async ()=>
+                    {
+                        await layerHelper.Confirm("我是确认窗", new LayerOptions() { icon = 1 }, async (index)=>
+                        {
+                            Console.WriteLine($"Confirm:{index}");
+                            await layerHelper.Close(index);
+                        });
+                    })">
+    测试Confirm
+</button>
+
+<button @onclick="@(async ()=>
+                    {
+                        await layerHelper.Msg("我是MSG", new LayerOptions() { icon = 6 });
+                    })">
+    测试Msg
+</button>
+
+<button @onclick="@(async ()=>
+                    {
+                        await layerHelper.Load(2, new LayerOptions() { time = 5 * 1000 });
+                    })">
+    测试Load
+</button>
+
+<button @onclick="@(async ()=>
+                    {
+                        await layerHelper.Tips("我是Tips", "#tip", new LayerOptions() { tips = "1" });
+                    })">
+    测试Tips
+</button>
+
+<button @onclick="@(async ()=>
+                    {
+                        await layerHelper.Prompt(new LayerOptions() { formType = 0 }, async (value, index)=> 
+                        {
+                            Console.WriteLine($"value:{value},index:{index}");
+                            await layerHelper.Close(index);
+                        });
+                    })">
+    测试Prompt
+</button>
+
+@code{
+    private Layer dlgtplt;
+
+    private Layer tiptplt;
+
+    private string result;
+    private string num1 = "0";
+    private string num2 = "0";
+
+    private LayerJsInterop layerJsInterop;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        layerJsInterop = new LayerJsInterop(jsRuntime);
+    }
+
+    private async Task TestOpen()
+    {
+        result = "待计算";
+        await dlgtplt.OpenAsync();
+        //int index = await layerJsInterop.Test("我们");
+        //result = $"result:{index}";
+    }
+
+    private async Task TestOpen2()
+    {
+        await tiptplt.OpenAsync();
+    }
+}
