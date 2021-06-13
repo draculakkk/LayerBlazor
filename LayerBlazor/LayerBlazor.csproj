@@ -3,6 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <PackageProjectUrl>https://github.com/draculakkk/LayerBlazor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/draculakkk/LayerBlazor.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>0.8.0</Version>
+    <Authors>draculakkk</Authors>
+    <Company>draculakkk</Company>
+    <Description>Blazor component based on Layer</Description>
+    <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+    <PackageIcon>u=3825681062,601782652&amp;fm=21&amp;gp=0.jpg</PackageIcon>
   </PropertyGroup>
 
   
@@ -13,6 +22,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\draculakkk\Pictures\u=3825681062,601782652&amp;fm=21&amp;gp=0.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
