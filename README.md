@@ -21,7 +21,7 @@ wwwroot/index.html(WebAssembly)或_Host.cshtml(Blazor Server)添加（这里的�
 |CloseAsync|关闭弹窗方法|
 
 ### 示例1：标准用法，捕获Layer的引用示例，调用OpenAsync弹窗
-```html
+```razor
 <Layer @ref="dlgtplt" title="['文本', 'font-size:18px;']" debugMode="true" skin="layui-layer-rim" shadeClose="true" shade="0.6"
        area="['750px', '50%']" btn="['确定', '取消']"
        OnYes="@(async (index)=>
@@ -60,7 +60,7 @@ wwwroot/index.html(WebAssembly)或_Host.cshtml(Blazor Server)添加（这里的�
 ```
 
 ### 示例2：支持layer全局方法，需要注入LayerHelper，方法和layer官网文档同步（tab、photos、config、ready、getChildFrame、getFrameIndex暂时还不支持）
-```html
+```razor
 @inject LayerHelper layerHelper
 
 <button @onclick="@(async ()=>
