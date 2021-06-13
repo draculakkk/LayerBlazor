@@ -4,11 +4,12 @@
 
 ### 1：nuget 搜索 LayerBlazor安装类库
 ### 2：Program注册Services.AddLayer();
-### 3：到layui和jquery官网下载最新的layer和jquery的JS库，
+### 3：到layui和jquery官网下载最新的layer和jquery的JS库
 wwwroot/index.html(WebAssembly)或_Host.cshtml(Blazor Server)添加（这里的引用路径填自己的JS及样式路径）
-<link href="script/layer/theme/default/layer.css" rel="stylesheet" />
+<link href="script/layer/theme/default/layer.css" rel="stylesheet" /> 
 <script src="script/jquery-{version}.min.js"></script>
 <script src="script/layer/layer.js"></script>
+
 ### 4：_Imports.razor 添加 @using LayerBlazor
 
 ## Layer标签自带的属性说明，其余属性可参考layer官网文档：
@@ -19,7 +20,7 @@ wwwroot/index.html(WebAssembly)或_Host.cshtml(Blazor Server)添加（这里的�
 |debugModel|启用后浏览器控台会输出当前layer弹窗的options项|
 |CloseAsync|关闭弹窗方法|
 
-### 示例1：标准用法
+### 示例1：标准用法，捕获Layer的引用示例，调用OpenAsync弹窗
 ```html
 <Layer @ref="dlgtplt" title="['文本', 'font-size:18px;']" debugMode="true" skin="layui-layer-rim" shadeClose="true" shade="0.6"
        area="['750px', '50%']" btn="['确定', '取消']"
