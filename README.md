@@ -3,9 +3,9 @@
 ## 简要说明：
 
 ### 1：nuget 搜索 LayerBlazor安装类库
-### 2：Program注册Services.AddLayer();
-### 3：到layui和jquery官网下载最新的layer和jquery的JS库
-wwwroot/index.html(WebAssembly)或_Host.cshtml(Blazor Server)添加如下行（这里的引用路径填自己项目的JS及样式路径）
+### 2：Program.cs(WebAssembly)或Startup.cs(BlazorServer)注入services.AddLayer();
+### 3：到layer和jquery官网下载最新的layer和jquery的JS库
+wwwroot/index.html(WebAssembly)或_Host.cshtml(BlazorServer)添加如下行（这里的引用路径填自己项目的JS及样式路径）
 ```html
 <link href="script/layer/theme/default/layer.css" rel="stylesheet" /> <br/>
 <script src="script/jquery-{version}.min.js"></script> <br/>
@@ -21,7 +21,7 @@ wwwroot/index.html(WebAssembly)或_Host.cshtml(Blazor Server)添加如下行（�
 |debugModel|启用后浏览器控台会输出当前layer弹窗的options项|
 |CloseAsync|关闭弹窗方法|
 
-### 示例1：标准用法，捕获Layer的引用示例，调用OpenAsync弹窗
+### 示例1：标准用法，捕获Layer的引用实例，调用OpenAsync弹窗
 ```razor
 <Layer @ref="dlgtplt" title="['文本', 'font-size:18px;']" debugMode="true" skin="layui-layer-rim" shadeClose="true" shade="0.6"
        area="['750px', '50%']" btn="['确定', '取消']"
@@ -42,7 +42,7 @@ wwwroot/index.html(WebAssembly)或_Host.cshtml(Blazor Server)添加如下行（�
     <div style="background-color: red;">
         <h1>数字1+数字2结果：@result</h1>
         数字1:<input @bind="num1" />
-        数字1:<input @bind="num2" />
+        数字2:<input @bind="num2" />
         <Button @onclick="@(e => { result = $"{int.Parse(num1) + int.Parse(num2)}"; })">计算</Button>
     </div>
 </Layer>
